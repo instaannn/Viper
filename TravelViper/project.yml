@@ -1,0 +1,87 @@
+name: TravelViper
+options:
+  bundleIdPrefix: ru.it4it
+  defaultConfig: Dev
+  deploymentTarget:
+    iOS: '15.0'
+  groupSortPosition: top
+schemes:
+  Dev:
+    analyze:
+      config: Dev
+    archive:
+      config: Dev
+    build:
+      targets:
+        TravelViper: all
+    profile:
+      config: Dev
+    run:
+      config: Dev
+      environmentVariables:
+      - isEnabled: false
+        value: disable
+        variable: OS_ACTIVITY_MODE
+    test:
+      config: Dev
+
+settings:
+  base:
+    CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER: 'YES'
+    CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: 'YES'
+    CURRENT_PROJECT_VERSION: 1
+    DEBUG_INFORMATION_FORMAT: dwarf-with-dsym
+    ENABLE_BITCODE: 'NO'
+    ENABLE_PREVIEWS: 'YES'
+    IPHONEOS_DEPLOYMENT_TARGET: '15.0'
+    MTL_ENABLE_DEBUG_INFO: 'YES'
+    OTHER_LDFLAGS: -weak_framework SwiftUI
+    SUPPORTS_MACCATALYST: 'NO'
+    SWIFT_COMPILATION_MODE: wholemodule
+    SWIFT_VERSION: 5.5
+    VERSION_NUMBER: '1.0'
+    APP_GROUP_ENTITLEMENT: "group.ru.viper"
+    KEYCHAIN_ENTITLEMENT: "N7B9Y8WYA7.ru.viper"
+    DEVELOPMENT_TEAM: "N7B9Y8WYA7"
+    CODE_SIGN_STYLE: "Manual"
+  configs:
+    Dev:
+      LD_RUNPATH_SEARCH_PATHS: $(inherited) @loader_path/../
+      OTHER_SWIFT_FLAGS: "-D DEBUG"
+      SWIFT_COMPILATION_MODE: singlefile
+targets:
+  TravelViper:
+    platform: iOS
+    settings:
+      base:
+        INFOPLIST_FILE: TravelViper/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: ru.viper
+        STRIP_STYLE: debugging
+        STRIP_SWIFT_SYMBOLS: 'NO'
+        TARGETED_DEVICE_FAMILY: 1,2
+        VALIDATE_WORKSPACE: 'NO'
+        VERSIONING_SYSTEM: apple-generic
+        CODE_SIGN_STYLE: "Manual"
+        CODE_SIGN_IDENTITY: "Apple Development"
+        PROVISIONING_PROFILE_SPECIFIER: "match Development ru.viper"
+      configs:
+        Dev:
+          SWIFT_OPTIMIZATION_LEVEL: -Onone
+    sources:
+    - path: TravelViper
+    type: application
+    
+  TravelViperTests:
+    type: bundle.unit-test
+    platform: iOS
+    dependencies:
+    - target: TravelViper
+    
+    platform: iOS
+    settings:
+      INFOPLIST_FILE: TravelViperTests/Info.plist
+      PRODUCT_BUNDLE_IDENTIFIER: ru.viper.tests
+      TEST_HOST: "$(BUILT_PRODUCTS_DIR)/Viper.app/Viper"
+
+configs:
+  Dev: debug
