@@ -6,4 +6,11 @@
   
 */
 
-"title" = "Title";
+"action.buttonTitle" = "Ok";
+"action.title" = "Error";
+
+"error.nil" = "nil";
+
+"hotel.cellIdentifier" = "HotelCell";
+
+"countries.cellIdentifier" = "CountriesCell";

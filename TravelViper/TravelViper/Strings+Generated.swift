@@ -1,3 +1,6 @@
+// Strings+Generated.swift
+// Copyright © RoadMap. All rights reserved.
+
 // swiftlint:disable all
 // Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
 
@@ -10,32 +13,53 @@ import Foundation
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum S {
-  /// Localizable.strings
-  ///   TravelViper
-  /// 
-  ///   Created by Анна Сычева on 13.02.2023.
-  internal static let title = S.tr("Localizable", "title", fallback: "Title")
+    internal enum Action {
+        /// Localizable.strings
+        ///   TravelViper
+        ///
+        ///   Created by Анна Сычева on 13.02.2023.
+        internal static let buttonTitle = S.tr("Localizable", "action.buttonTitle", fallback: "Ok")
+        /// Error
+        internal static let title = S.tr("Localizable", "action.title", fallback: "Error")
+    }
+
+    internal enum Countries {
+        /// CountriesCell
+        internal static let cellIdentifier = S.tr("Localizable", "countries.cellIdentifier", fallback: "CountriesCell")
+    }
+
+    internal enum Error {
+        /// nil
+        internal static let `nil` = S.tr("Localizable", "error.nil", fallback: "nil")
+    }
+
+    internal enum Hotel {
+        /// HotelCell
+        internal static let cellIdentifier = S.tr("Localizable", "hotel.cellIdentifier", fallback: "HotelCell")
+    }
 }
+
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
 
 // MARK: - Implementation Details
 
 extension S {
-  private static func tr(_ table: String, _ key: String, _ args: CVarArg..., fallback value: String) -> String {
-    let format = BundleToken.bundle.localizedString(forKey: key, value: value, table: table)
-    return String(format: format, locale: Locale.current, arguments: args)
-  }
+    private static func tr(_ table: String, _ key: String, _ args: CVarArg..., fallback value: String) -> String {
+        let format = BundleToken.bundle.localizedString(forKey: key, value: value, table: table)
+        return String(format: format, locale: Locale.current, arguments: args)
+    }
 }
 
 // swiftlint:disable convenience_type
 private final class BundleToken {
-  static let bundle: Bundle = {
-    #if SWIFT_PACKAGE
-    return Bundle.module
-    #else
-    return Bundle(for: BundleToken.self)
-    #endif
-  }()
+    static let bundle: Bundle = {
+        #if SWIFT_PACKAGE
+        return Bundle.module
+        #else
+        return Bundle(for: BundleToken.self)
+        #endif
+    }()
 }
+
 // swiftlint:enable convenience_type
