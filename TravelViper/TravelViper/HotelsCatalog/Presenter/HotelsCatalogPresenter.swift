@@ -11,7 +11,7 @@ final class HotelsCatalogPresenter: HotelsCatalogPresenterProtocol {
 
     // MARK: - Private Properties
 
-    private var view: HotelsCatalogViewProtocol?
+    private weak var view: HotelsCatalogViewProtocol?
     private var router: RouterProtocol?
     private var interactor: HotelsCatalogInteractorProtocol?
     private var countryName: String

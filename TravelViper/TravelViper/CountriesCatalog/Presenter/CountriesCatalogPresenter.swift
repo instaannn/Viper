@@ -3,7 +3,7 @@
 
 import Foundation
 
-///
+/// Презентер экрана отелей
 final class CountriesCatalogPresenter: CountriesCatalogPresenterProtocol {
     // MARK: - Public Properties
 
@@ -11,7 +11,7 @@ final class CountriesCatalogPresenter: CountriesCatalogPresenterProtocol {
 
     // MARK: - Private Properties
 
-    private var view: CountriesCatalogViewProtocol?
+    private weak var view: CountriesCatalogViewProtocol?
     private var router: RouterProtocol?
     private var interactor: CountriesCatalogInteractorProtocol?
 
